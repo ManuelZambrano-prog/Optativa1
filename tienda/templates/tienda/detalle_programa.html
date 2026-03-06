@@ -1,0 +1,38 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}{{ programa.nombrePrograma }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ programa.nombrePrograma }}</h1>
+</div>
+
+<div class="detail-card">
+    <div class="detail-field">
+        <span class="detail-label">Facultad</span>
+        <span class="detail-value">{{ programa.facultad }}</span>
+    </div>
+    <div class="detail-field">
+        <span class="detail-label">Estado</span>
+        <span class="detail-value">
+            <span class="badge badge-{{ programa.estado|lower }}">{{ programa.estado }}</span>
+        </span>
+    </div>
+    <div class="detail-field">
+        <span class="detail-label">Fecha de creación</span>
+        <span class="detail-value">{{ programa.fechaCreacion|date:"Y-m-d" }}</span>
+    </div>
+</div>
+
+<h3 class="section-title">Cursos del programa</h3>
+<ul class="card-list">
+    {% for curso in programa.cursos.all %}
+        <li>
+            <a href="{% url 'tienda:detalle_curso' curso.pk %}">{{ curso.nombreCurso }}</a>
+            <span class="card-meta">{{ curso.codigoCurso }}</span>
+        </li>
+    {% empty %}
+        <div class="empty-state">No hay cursos registrados en este programa.</div>
+    {% endfor %}
+</ul>
+{% endblock %}

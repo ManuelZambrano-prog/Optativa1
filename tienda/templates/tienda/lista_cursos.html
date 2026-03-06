@@ -1,0 +1,21 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Cursos{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Cursos</h1>
+</div>
+<ul class="card-list">
+    {% for curso in cursos %}
+        <li>
+            <a href="{% url 'tienda:detalle_curso' curso.pk %}">{{ curso.nombreCurso }}</a>
+            <span class="card-meta">{{ curso.codigoCurso }} &nbsp;·&nbsp; {{ curso.creditos }} créditos &nbsp;·&nbsp;
+                <span class="badge badge-{{ curso.estado|lower }}">{{ curso.estado }}</span>
+            </span>
+        </li>
+    {% empty %}
+        <div class="empty-state">No hay cursos registrados.</div>
+    {% endfor %}
+</ul>
+{% endblock %}

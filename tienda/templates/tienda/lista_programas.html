@@ -1,0 +1,21 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Programas{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Programas</h1>
+</div>
+<ul class="card-list">
+    {% for programa in programas %}
+        <li>
+            <a href="{% url 'tienda:detalle_programa' programa.pk %}">{{ programa.nombrePrograma }}</a>
+            <span class="card-meta">{{ programa.facultad }} &nbsp;·&nbsp;
+                <span class="badge badge-{{ programa.estado|lower }}">{{ programa.estado }}</span>
+            </span>
+        </li>
+    {% empty %}
+        <div class="empty-state">No hay programas registrados.</div>
+    {% endfor %}
+</ul>
+{% endblock %}

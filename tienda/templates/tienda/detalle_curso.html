@@ -1,0 +1,38 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Curso - {{ curso.nombreCurso }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ curso.nombreCurso }}</h1>
+</div>
+
+<div class="detail-card">
+    <div class="detail-field">
+        <span class="detail-label">Código</span>
+        <span class="detail-value">{{ curso.codigoCurso }}</span>
+    </div>
+    <div class="detail-field">
+        <span class="detail-label">Créditos</span>
+        <span class="detail-value">{{ curso.creditos }}</span>
+    </div>
+    <div class="detail-field">
+        <span class="detail-label">Estado</span>
+        <span class="detail-value">
+            <span class="badge badge-{{ curso.estado|lower }}">{{ curso.estado }}</span>
+        </span>
+    </div>
+</div>
+
+<h3 class="section-title">Estudiantes inscritos</h3>
+<ul class="card-list">
+    {% for inscripcion in curso.inscripciones.all %}
+        <li>
+            <a href="{% url 'tienda:detalle_estudiante' inscripcion.estudiante.pk %}">{{ inscripcion.estudiante.nombres }}</a>
+            <span class="card-meta">{{ inscripcion.estudiante.cedula }}</span>
+        </li>
+    {% empty %}
+        <div class="empty-state">No hay estudiantes inscritos en este curso.</div>
+    {% endfor %}
+</ul>
+{% endblock %}

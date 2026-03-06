@@ -1,0 +1,15 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Inicio - Universidad{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Bienvenido a la Universidad</h1>
+    <p class="hero-sub">Gestión académica de programas, cursos y estudiantes</p>
+    <div class="hero-links">
+        <a href="{% url 'tienda:lista_programas' %}" class="btn btn-primary">Ver Programas</a>
+        <a href="{% url 'tienda:lista_cursos' %}" class="btn btn-outline">Ver Cursos</a>
+        <a href="{% url 'tienda:lista_estudiantes' %}" class="btn btn-outline">Ver Estudiantes</a>
+    </div>
+</div>
+{% endblock %}

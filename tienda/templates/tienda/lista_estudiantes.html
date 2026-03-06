@@ -1,0 +1,21 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Estudiantes{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Estudiantes</h1>
+</div>
+<ul class="card-list">
+    {% for estudiante in estudiantes %}
+        <li>
+            <a href="{% url 'tienda:detalle_estudiante' estudiante.pk %}">{{ estudiante.nombres }}</a>
+            <span class="card-meta">{{ estudiante.cedula }} &nbsp;·&nbsp; {{ estudiante.programa.nombrePrograma|default:"Sin programa" }} &nbsp;·&nbsp;
+                <span class="badge badge-{{ estudiante.estado|lower }}">{{ estudiante.estado }}</span>
+            </span>
+        </li>
+    {% empty %}
+        <div class="empty-state">No hay estudiantes registrados.</div>
+    {% endfor %}
+</ul>
+{% endblock %}
