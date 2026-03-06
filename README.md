@@ -104,3 +104,11 @@ http://127.0.0.1:8000/
 
 **Manuel Zambrano**  
 GitHub: [@ManuelZambrano-prog](https://github.com/ManuelZambrano-prog)
+
+**Ana Abril**  
+GitHub: [@anamari4](https://github.com/anamari4)
+
+**Juan Murillo**  
+GitHub: [@jhank-beats](https://github.com/jhank-beats)
+
+
