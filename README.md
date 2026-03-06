@@ -1,6 +1,3 @@
-Readme · MD
-Copiar
-
 # Universidad - Sistema de Gestión Académica
 
 Aplicación web desarrollada con **Django** que permite gestionar la información académica básica de una universidad: programas, cursos y estudiantes, incluyendo la relación de inscripciones entre estudiantes y cursos.
